@@ -17,11 +17,51 @@ Else
 Program:
 
 //type your code here
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+struct eligible {
+    int age;
+    char n[50];
+};
+
+int main() {
+    int i, count;
+    printf("Enter number of people: ");
+    scanf("%d", &count);
+    
+    struct eligible e[count];
+
+    for(i = 0; i < count; i++) {
+        printf("\nEnter name: ");
+        scanf("%s", e[i].n);
+        printf("Enter age: ");
+        scanf("%d", &e[i].age);
+
+        printf("Name: %s\n", e[i].n);
+        printf("Age: %d\n", e[i].age);
+
+        if(e[i].age <= 6)
+            printf("Vaccine Eligibility: No\n");
+        else
+            printf("Vaccine Eligibility: Yes\n");
+    }
+
+    return 0;
+}
 
 
 Output:
 
 //paste your output here
+![Screenshot 2025-04-26 130117](https://github.com/user-attachments/assets/be943b68-3082-43c5-a593-8d07ecc8d273)
 
 
 Result:
@@ -45,6 +85,34 @@ Algorithm:
 Program:
 
 //type your code here
+#include <stdio.h>
+
+struct numbers {
+    int a;
+    int b;
+};
+
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
+
+int main() {
+    struct numbers n, sum;
+
+    printf("Enter two integers:\n");
+    printf("a = ");
+    scanf("%d", &n.a);
+    printf("b = ");
+    scanf("%d", &n.b);
+
+    sum = add(n);
+
+    printf("Sum = %d\n", sum.a);
+
+    return 0;
+}
 
 
 
@@ -54,6 +122,7 @@ Output:
 
 //paste your output here
 
+<img width="137" alt="image" src="https://github.com/user-attachments/assets/4e5b52a3-6970-49f6-8e91-aa971fa6e328" />
 
 
 
@@ -89,6 +158,30 @@ Program:
 //type your code here
 
 
+#include <stdio.h>
+
+int main() {
+    FILE *p;
+    char name[100];
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+
+    p = fopen(name, "w");
+
+    if (p == NULL) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    printf("File '%s' created and opened successfully.\n", name);
+
+    fclose(p);
+
+    printf("File closed successfully.\n");
+
+    return 0;
+}
 
 
 Output:
@@ -98,6 +191,7 @@ Output:
 
 
 
+<img width="314" alt="image" src="https://github.com/user-attachments/assets/ac83972b-135e-4e27-a0c5-c7828c4db461" />
 
 
 
@@ -137,6 +231,41 @@ Program:
 
 
 
+#include <stdio.h>
+
+int main() {
+    FILE *p;
+    char name[100], text[100];
+    int num, i;
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+
+    printf("Enter the number of lines to insert: ");
+    scanf("%d", &num);
+
+    p = fopen(name, "w");
+
+    if (p == NULL) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    printf("File '%s' opened successfully.\n", name);
+
+    for (i = 0; i < num; i++) {
+        printf("Enter line %d: ", i + 1);
+        scanf(" %[^\n]", text);  // Reads a line including spaces
+        fputs(text, p);
+        fputs("\n", p);
+    }
+
+    fclose(p);
+
+    printf("Data added successfully.\n");
+
+    return 0;
+}
 
 Output:
 
@@ -144,6 +273,7 @@ Output:
 //paste your output here
 
 
+<img width="273" alt="image" src="https://github.com/user-attachments/assets/35a7db2a-4700-44a4-9f1d-f8077c24f053" />
 
 
 
@@ -190,6 +320,44 @@ Program:
 //type your code here
 
 
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Subject {
+    char name[50];
+    int marks;
+};
+
+int main() {
+    int n, i;
+    struct Subject *s;
+
+    printf("Enter the number of subjects: ");
+    scanf("%d", &n);
+
+    s = (struct Subject*)malloc(n * sizeof(struct Subject));
+
+    if (s == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; i++) {
+        printf("Enter name of subject %d: ", i + 1);
+        scanf("%s", s[i].name);
+        printf("Enter marks for %s: ", s[i].name);
+        scanf("%d", &s[i].marks);
+    }
+
+    printf("\n--- Subject Details ---\n");
+    for (i = 0; i < n; i++) {
+        printf("Subject: %s, Marks: %d\n", s[i].name, s[i].marks);
+    }
+
+    free(s);
+
+    return 0;
+}
 
 
 Output:
@@ -198,6 +366,7 @@ Output:
 //paste your output here
 
 
+![Screenshot 2025-04-26 130759](https://github.com/user-attachments/assets/d51c4cbf-a27f-47a1-b0df-0456678a47e8)
 
 
 
